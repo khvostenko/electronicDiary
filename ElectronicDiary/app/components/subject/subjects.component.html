@@ -1,0 +1,17 @@
+﻿<h1>Предмети</h1>
+<p *ngIf="!subjects"><em>Загрузка...</em></p>
+<button type="button" style="width:100px;" class="btn btn-primary btn-margin-5" [routerLink]="['../addSubject']">Додати</button>
+<table class='table' *ngIf="subjects">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let subject of subjects">
+            <td>{{ subject.Name }}</td>
+            <td><button (click)="Delete(subject.Id)" class="btn btn-danger">Видалити</button></td>
+        </tr>
+    </tbody>
+</table>

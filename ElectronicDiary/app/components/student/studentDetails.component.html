@@ -1,0 +1,26 @@
+﻿<h1>Персональні дані студента</h1>
+<p *ngIf="!student"><em>Loading...</em></p>
+<div *ngIf="student">
+    <p><strong>Номер залікової книжки</strong> : {{ student.StudentCardId }}</p>
+    <p><strong>ПІБ</strong> : {{ student.Name }}</p>
+    <p *ngIf="group"><strong>Група </strong>: {{ group.Name }}</p>
+    <p *ngIf="faculty"><strong>Факультет </strong>: {{ faculty.Name }}</p>
+</div>
+<h1>Успішність студента</h1>
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Предмет</th>
+            <th>Оцінка</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mark of marks">
+            <td>{{ mark.SubjectName }}</td>
+            <td>{{ mark.Rating }}</td>
+            <td><button type="button" style="width:140px;" class="btn btn-primary btn-margin-5" [routerLink]="['../../mark-edit',mark.Id]">Змінити оцінку</button></td>
+        </tr>
+
+    </tbody>
+</table>

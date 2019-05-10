@@ -1,0 +1,46 @@
+﻿<div class="container-fluid my-container">
+    <nav class="navbar navbar-default" style="background-color: #002c5f; border-color: #002c5f;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="pull-left img-responsive">
+                <div class="navbar-brand" [routerLink]="['home']" style="color:lightgray; cursor:pointer;">
+                    Домашня сторінка
+                </div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <div *ngIf="!isAuth">
+                <ul class="nav navbar-nav navbar-right">
+                    <!--<li><a [routerLink]="['register']" style="color:lightgray; cursor:pointer;">Registration</a></li>-->
+
+                    <li><a [routerLink]="['login']" style="color:lightgray; cursor:pointer;"><span class="glyphicon glyphicon-log-in"></span>Увійти</a></li>
+                </ul>
+            </div>
+            <div *ngIf="isAuth">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a (click)="openHomePage()" style="color:lightgray; cursor:pointer;">{{userName}}</a></li>
+                    <li><a (click)="signOut()" style="color:lightgray; cursor:pointer;"><span class="glyphicon glyphicon-log-out"></span>Вийти</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container-fluid" style="min-height: 520px">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <!--All inner pages will be loaded here-->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<!--<div class="container-fluid my-container" style="position:absolute; bottom:0; width:100%; height:40px;">
+    <footer class="panel-footer">
+        <div class="row">
+            <p class="text-center">(c) Andriy Khvostenko-2018 </p>
+        </div>
+    </footer>
+</div>-->

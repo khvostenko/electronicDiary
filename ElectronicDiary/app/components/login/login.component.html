@@ -1,0 +1,52 @@
+﻿<!--<div class="col-md-6 col-md-offset-3">
+    <h2>Увійти</h2>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="username">Логін</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="model.UserName" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="password">Пароль</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.Password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Увійти</button>
+        </div>
+    </form>
+</div>-->
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-heading">
+            <h2 class="text-center">Вхід</h2>
+        </div>
+        <hr />
+        <div class="modal-body">
+            <form action="" role="form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                        <input type="text" [(ngModel)]="model.UserName" class="form-control" placeholder="Введіть логін" name="username" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </span>
+                        <input [(ngModel)]="model.Password" type="password" class="form-control" placeholder="Введіть Пароль" name="password" />
+                    </div>
+                </div>
+                <p style="color: red;" *ngIf="wrongCredentials"> Неправильний логін або пароль.</p>
+                <div class="form-group text-center">
+                    <button type="submit" (click)="login()" class="btn btn-success btn-lg">Увійти</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

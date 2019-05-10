@@ -1,0 +1,45 @@
+﻿
+<nav class="navbar">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['info']">Персональні дані</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['administrators']">Адміністратори</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['faculties']">Факультети</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['groups']">Групи</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['subjects']">Предмети</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['students']">Студенти</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['tutors']">Викладачі</button></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['addStudent']">Реєстрація студентів</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['addAdmin']">Реєстрація адміністраторів</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['addTutor']">Реєстрація викладачів</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['addGroup']">Додавання групи</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['addSubject']">Додавання предмету</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['addfaculty']">Додавання факультету</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['messages', adminId]">Мої повідомлення</button></li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <div>
+        <div style="display: block">
+            <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+            </canvas>
+        </div>
+        <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 bs-callout bs-callout-info">
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

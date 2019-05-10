@@ -1,0 +1,23 @@
+﻿<div>
+    <h3>Мої відправленні повідомлення</h3>
+    <div class="row">
+        <div *ngFor="let message of sentMessages">
+            <div class="container">
+                <p class="user-name">Одержувач: {{message.ReceiverUserName}}</p>
+                <p>{{message.Text}}</p>
+                <span class="time-right">{{message.TimeSent}}</span>
+            </div>
+        </div>
+    </div>
+    <h3>Мої отриманні повідомлення</h3>
+    <div class="row">
+        <div *ngFor="let message of receiveMessages">
+            <div class="container darker">
+                <p class="user-name">Відправник: {{message.SenderUserName}}</p>
+                <p>{{message.Text}}</p>
+                <span class="time-right">{{message.TimeSent}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+

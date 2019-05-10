@@ -1,0 +1,12 @@
+﻿<h4 class="text-center">Змінити оцінку</h4>
+<div class="col-md-8 col-md-offset-2">
+    <form name="form" (ngSubmit)="f.form.valid && Edit()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Rating.valid }">
+            <label for="Rating">Оцінка *</label>
+            <input type="text" class="form-control" name="Rating" [(ngModel)]="mark.Rating" #FullName="ngModel" required />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default">Редагувати</button>
+        </div>
+    </form>
+</div>

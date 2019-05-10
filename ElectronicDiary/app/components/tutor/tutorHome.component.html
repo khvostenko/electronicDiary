@@ -1,0 +1,19 @@
+﻿
+<nav class="navbar">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['info']">Персональні дані</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['subjects',tutorId]">Мої предмети</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['students']">Студенти</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['tutors']">Викладачі</button></li>
+            <li><button type="button" class="btn btn-primary btn-margin-2" [routerLink]="['messages', tutorId]">Мої повідомлення</button></li>
+        </ul>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-sm-12 bs-callout bs-callout-info">
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

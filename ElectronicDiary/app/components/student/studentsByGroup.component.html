@@ -1,0 +1,21 @@
+﻿<h1>Студенти</h1>
+<p *ngIf="!students"><em>Загрузка...</em></p>
+<table class='table' *ngIf="students">
+    <thead>
+        <tr>
+            <th>Номер залікової книжки</th>
+            <th>ПІБ</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{ student.StudentCardId }}</td>
+            <td>{{ student.Name }}</td>
+            <td><button type="button" style="width:140px;" class="btn btn-primary btn-margin-5" [routerLink]="['../../addMark',student.Id]">Поставити оцінку</button></td>
+            <td><button type="button" style="width:140px;" class="btn btn-primary btn-margin-5" [routerLink]="['../../student-details',student.Id]">Показати деталі</button></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,12 @@
+﻿<div class="row">
+    <div class="col-sm-9">
+        <div *ngIf="admin">
+            <p>Ім'я: {{admin.Name}}</p>
+            <p>Пошта: {{admin.Email}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <!--<button class="btn btn-warning btn-margin-5" [routerLink]="['../adminEdit',admin.Id]">Редагувати дані</button>
+        <button class="btn btn-warning btn-margin-5" disabled>Змінити пароль</button>-->
+    </div>
+</div>

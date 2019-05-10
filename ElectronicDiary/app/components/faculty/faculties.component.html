@@ -1,0 +1,15 @@
+﻿<h1>Факультети</h1>
+<p *ngIf="!faculties"><em>Загрузка...</em></p>
+<button type="button" style="width:100px;" class="btn btn-primary btn-margin-5" [routerLink]="['../addfaculty']">Додати</button>
+<table class='table' *ngIf="faculties">
+    <thead>
+        <tr>
+            <th>Назва факультету</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let faculty of faculties">
+            <td>{{ faculty.Name }}</td>
+        </tr>
+    </tbody>
+</table>

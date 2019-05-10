@@ -1,0 +1,19 @@
+﻿<h4 class="text-center">Додавання предмету</h4>
+
+<div *ngIf="tutors" class="col-md-8 col-md-offset-2">
+    <b>Назва предмету</b>
+    <input type="text" [(ngModel)]="subject.Name" class="form-control" /><br />
+    <b>Екзамен</b>
+    <p>
+        <input type="radio" value="true" name="isExam" [ngModel]="subject.IsExam"> Екзамен
+        <input type="radio" value="false" name="isExam" [ngModel]="subject.IsExam"> Залік
+    </p>
+    <label>Викладач</label>
+    <select [(ngModel)]="subject.TutorId" class="form-control">
+        <option *ngFor="let tutor of tutors" [attr.value]="tutor.Id">{{tutor.Name}}</option>
+    </select>
+    <div>
+        * <label style="color: red;">- необхідне для заповнення</label><br>
+        <button (click)="Done(subject)" class="btn btn-default">Додати</button>
+    </div>
+</div>

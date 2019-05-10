@@ -1,0 +1,16 @@
+﻿<h1>Мої предмети</h1>
+<p *ngIf="!subjects"><em>Загрузка...</em></p>
+<table class='table' *ngIf="subjects">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let subject of subjects">
+            <td><a [routerLink]="['../../subject-details',subject.Id]">{{ subject.Name }}</a></td>
+            <!--<td><button type="button" style="width:140px;" class="btn btn-primary btn-margin-5" [routerLink]="['../subjectDetail',subject.Id]">Деталі</button></td>-->
+        </tr>
+    </tbody>
+</table>

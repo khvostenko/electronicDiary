@@ -1,0 +1,25 @@
+﻿<h1>Викладачі</h1>
+<p *ngIf="!tutors"><em>Загрузка...</em></p>
+<button *ngIf="currentRole" type="button" style="width:100px;" class="btn btn-primary btn-margin-5" [routerLink]="['../addTutor']">Додати</button>
+<table class='table' *ngIf="tutors">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>ПІБ</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tutor of tutors">
+            <td>{{ tutor.Email }}</td>
+            <td>{{ tutor.Name }}</td>
+            <td><button *ngIf="currentRole" type="button" style="width:140px;" class="btn btn-primary btn-margin-5" [routerLink]="['tutorEdit', tutor.Id]" disabled>Редагувати</button></td>
+            <td><button type="button" style="width:140px;" class="btn btn-primary btn-margin-5" [routerLink]="['../sentMessages',tutor.Id]">Sent message</button></td>
+            <td><button *ngIf="showDetails" type="button" style="width:140px;" class="btn btn-primary btn-margin-5" [routerLink]="['../tutor-details',tutor.Id]">Показати деталі</button></td>
+            <td><button *ngIf="currentRole" type="button" style="width:140px;" class="btn btn-primary btn-margin-5" (click)="Delete(tutor.Id)">Видалити</button></td>
+
+        </tr>
+    </tbody>
+</table>

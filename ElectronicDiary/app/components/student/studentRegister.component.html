@@ -1,0 +1,51 @@
+﻿<h4 class="text-center">Реєстрація нового студента</h4>
+<div class="col-md-6 col-md-offset-3">
+    <form name="form" (ngSubmit)="f.form.valid && Register(model)" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label for="studentCardId">Номер залікової книжки*</label>
+            <input type="text" class="form-control" name="StudentCardId" [(ngModel)]="model.StudentCardId" required />
+        </div>
+        <div class="form-group" *ngIf="faculties" [ngClass]="{ 'has-error': f.submitted && !FacultyId.valid }">
+            <label>Факультет*</label><br />
+            <select [(ngModel)]="model.FacultyId" class="form-control" name="FacultyId" #FacultyId="ngModel" required>
+                <option *ngFor="let faculty of faculties" [attr.value]="faculty.Id">{{faculty.Name}}</option>
+            </select>
+            <div *ngIf="f.submitted && !FacultyId.valid" class="help-block">Виберіть факультет із списку</div>
+        </div>
+        <div class="form-group" *ngIf="groups" [ngClass]="{ 'has-error': f.submitted && !GroupId.valid }">
+            <label>Група*</label><br />
+            <select [(ngModel)]="model.GroupId" class="form-control" name="GroupId" #GruopId="ngModel" required>
+                <option *ngFor="let group of groups" [attr.value]="group.Id">{{group.Name}}</option>
+            </select>
+            <div *ngIf="f.submitted && !GroupId.valid" class="help-block">Виберіть групу із списку</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !PhoneNumber.valid }">
+            <label for="PhoneNumber">Номер телефону *</label>
+            <input type="text" class="form-control" name="PhoneNumber" [(ngModel)]="model.PhoneNumber" #PhoneNumber="ngModel" required />
+            <div *ngIf="f.submitted && !PhoneNumber.valid" class="help-block">Номер телефону має починатися з "380" і мати довжину 13 символів</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !Email.valid }">
+            <label for="Email">Пошта *</label>
+            <input type="text" class="form-control" name="Email" minlength="10" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="model.Email" #Email="ngModel" required />
+            <div *ngIf="f.submitted && !Email.valid" class="help-block">Довжина електронної пошти має бути більша 9 символів і містити "@"</div>
+        </div>
+
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !FullName.valid }">
+            <label for="FullName">ПІБ *</label>
+            <input type="text" class="form-control" name="FullName" minlength="10" [(ngModel)]="model.Name" #FullName="ngModel" required />
+            <div *ngIf="f.submitted && !FullName.valid" class="help-block">Довжина опису має бути більша 10 символів</div>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль*</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.Password" required />
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Підтвердження паролю*</label>
+            <input type="password" class="form-control" name="сonfirmPassword" [(ngModel)]="model.ConfirmPassword" required />
+        </div>
+    </form>
+    <div class="form-group">
+        * <label style="color: red;">- необхідне для заповнення</label><br>
+        <button (click)="Register(model)" class="btn btn-default">Додати</button>
+    </div>
+</div>

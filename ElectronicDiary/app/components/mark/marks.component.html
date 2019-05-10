@@ -1,0 +1,17 @@
+﻿<h1>Мої оцінки</h1>
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Предмет</th>
+            <th>Оцінка</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mark of marks">
+            <td>{{ mark.SubjectName }}</td>
+            <td>{{ mark.Rating }}</td>
+        </tr>
+
+    </tbody>
+</table>

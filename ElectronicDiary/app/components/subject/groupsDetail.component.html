@@ -1,0 +1,16 @@
+﻿<h1>Групи</h1>
+<p *ngIf="!groups"><em>Загрузка...</em></p>
+<table class='table' *ngIf="groups">
+    <thead>
+        <tr>
+            <th>Назва групи</th>
+            <th>Факультет</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let group of groups">
+            <td><a [routerLink]="['../../students-group',group.Id]">{{ group.Name }}</a></td>
+            <td>{{ getfacultyName(group.FacultyId) }}</td>
+        </tr>
+    </tbody>
+</table>

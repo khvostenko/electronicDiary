@@ -1,0 +1,12 @@
+﻿<h2>Персональна інформація</h2>
+<div class="row">
+    <div class="col-sm-9">
+        <div *ngIf="student">
+            <p><b>Номер залікової книжки:</b>{{student.StudentCardId}}</p>
+            <p><b>ПІБ:</b> {{student.Name}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <!--<button class="btn btn-warning btn-margin-5">Change Password</button>-->
+    </div>
+</div>
